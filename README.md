@@ -13,7 +13,7 @@ I tried to make this as accurate as possible. So, landing on a Chance of Communi
   - Advance to the next station.
   - Advance to the nearest station.
   - Advance to the nearest utility.
-  - Take a Trip to King's Cross Station.
+  - Take a trip to King's Cross Station.
   - Advance to Pall Mall.
   - Advance to Trafalgar Square.
   - Advance to Mayfair.
@@ -21,7 +21,9 @@ I tried to make this as accurate as possible. So, landing on a Chance of Communi
   - Go directly to Jail.
   - Advance to GO.
 
-At the start of each game, the decks are shuffled. After a card has been drawn, it is returned to the bottom of the deck. This means the decks are never shuffled again during the game. This also takes into account being sent to Jail upon rolling three doubles in a row.
+At the start of each game, the decks are shuffled. After a card has been drawn, it is returned to the bottom of the deck. This means the decks are never shuffled again during the game.
+
+This also takes into account being sent to Jail upon rolling three doubles in a row, and assumes no speed die. I haven't (yet) made it consider holding a Get Out of Jail Free card until used to get out of Jail, which should in theory change the results ever so slightly.
 
 ### Nearest v Next
 In the 2018 edition of Monopoly there are two Chance cards that direct you to a non-descript station. They are worded exactly the same except one says 'the next station' and the other says 'the nearest station'. I found some people online reasoning that the word 'nearest' implies that if the station behind you is closer you should make a full revolution to it (passing GO in the process) or just move back to it. I initially thought there was meant to be a difference in the cards due to the difference in wording. However, I checked the cards in my 2008 edition of the game and they both say 'nearest' station. Both editions' also have cards that say to advance to the 'nearest' utility. For these reasons, in this simulation both the 'nearest' and 'next' stations refer to the station you next encounter moving in the direction of the arrow on GO.
