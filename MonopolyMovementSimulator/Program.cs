@@ -12,11 +12,9 @@ namespace MonopolyMovementSimulator
         public static int CurrentSquare = 0;
         public static int DoublesStreak = 0;
 
-        private static int NumberOfMoves = 0;
-
         static void Main(string[] args)
         {
-            for (var x = 0; x < 1000000; x++)
+            for (var x = 0; x < 100; x++)
             {
                 Cards.InitChanceDeck();
                 Cards.InitCChestDeck();
@@ -100,22 +98,6 @@ namespace MonopolyMovementSimulator
                             }
                             break;
                         case ChanceCard.NextStation1:
-                            switch (CurrentSquare)
-                            {
-                                case 7:
-                                    CurrentSquare = 15;
-                                    PlacesVisited.Add($"{Spaces[CurrentSquare]} (via 'Next station' Chance card; {die1 + die2})");
-                                    break;
-                                case 22:
-                                    CurrentSquare = 25;
-                                    PlacesVisited.Add($"{Spaces[CurrentSquare]} (via 'Next station' Chance card; {die1 + die2})");
-                                    break;
-                                case 36:
-                                    CurrentSquare = 5;
-                                    PlacesVisited.Add($"{Spaces[CurrentSquare]} (via 'Next station' Chance card; {die1 + die2})");
-                                    break;
-                            }
-                            break;
                         case ChanceCard.NextStation2:
                             switch (CurrentSquare)
                             {
@@ -193,7 +175,6 @@ namespace MonopolyMovementSimulator
                 {
                     PlacesVisited.Add($"{Spaces[CurrentSquare]} ({die1 + die2})");
                 }
-                NumberOfMoves++;
             }
 
             //Console.WriteLine(PlacesVisited[PlacesVisited.Count - 1]);
@@ -223,8 +204,72 @@ namespace MonopolyMovementSimulator
             var n = 1;
             foreach (var space in orderedStats)
             {
-                Console.WriteLine($"{n}. {space.Key} - {space.Value} ({space.Value / (double)NumberOfMoves * 100}%)");
+                FindSetColour(space.Key);
+                Console.Write($"{n}. {space.Key} - {space.Value} ({space.Value / (double)PlacesVisited.Count * 100}%)");
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine();
                 n++;
+            }
+        }
+
+        static void FindSetColour(string place)
+        {
+            //Console.BackgroundColor
+            switch (place)
+            {
+                case "Old Kent Road":
+                case "Whitechapel Road":
+                    Console.BackgroundColor = ConsoleColor.DarkMagenta;
+                    break;
+                case "The Angel, Islington":
+                case "Euston Road":
+                case "Pentonville Road":
+                    Console.BackgroundColor = ConsoleColor.Cyan;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    break;
+                case "Pall Mall":
+                case "Whitehall":
+                case "Northumberland Avenue":
+                    Console.BackgroundColor = ConsoleColor.Magenta;
+                    break;
+                case "Bow Street":
+                case "Marlborough Street":
+                case "Vine Street":
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    break;
+                case "Strand":
+                case "Fleet Street":
+                case "Trafalgar Square":
+                    Console.BackgroundColor = ConsoleColor.DarkRed;
+                    break;
+                case "Leicester Square":
+                case "Coventry Street":
+                case "Piccadilly":
+                    Console.BackgroundColor = ConsoleColor.DarkYellow;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    break;
+                case "Regent Street":
+                case "Oxford Street":
+                case "Bond Street":
+                    Console.BackgroundColor = ConsoleColor.Green;
+                    break;
+                case "Park Lane":
+                case "Mayfair":
+                    Console.BackgroundColor = ConsoleColor.DarkBlue;
+                    break;
+                case "King's Cross Station":
+                case "Marylebone Station":
+                case "Fenchurch Street Station":
+                case "Liverpool Street Station":
+                    Console.BackgroundColor = ConsoleColor.Gray;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    break;
+                case "Electric Company":
+                case "Water Works":
+                    Console.BackgroundColor = ConsoleColor.White;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    break;
             }
         }
 
