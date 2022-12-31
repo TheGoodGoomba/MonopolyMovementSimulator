@@ -25,11 +25,11 @@ namespace MonopolyMovementSimulator
                 return;
             }
 
-            for (var x = 0; x < 100; x++)
+            for (var x = 0; x < int.Parse(games); x++)
             {
                 Cards.InitChanceDeck();
                 Cards.InitCChestDeck();
-                for (var y = 0; y < 100; y++)
+                for (var y = 0; y < int.Parse(turns); y++)
                 {
                     Turn();
                 }
