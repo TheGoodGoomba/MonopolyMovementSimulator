@@ -14,6 +14,17 @@ namespace MonopolyMovementSimulator
 
         static void Main(string[] args)
         {
+            Console.Write("Number of games: ");
+            var games = Console.ReadLine();
+            Console.Write("Number of rolls per game: ");
+            var turns = Console.ReadLine();
+
+            if (!int.TryParse(games, out _) || !int.TryParse(turns, out _))
+            {
+                Console.WriteLine(">:(");
+                return;
+            }
+
             for (var x = 0; x < 100; x++)
             {
                 Cards.InitChanceDeck();
