@@ -21,9 +21,10 @@ I tried to make this as accurate as possible. So, landing on a Chance of Communi
   - Go directly to Jail.
   - Advance to GO.
 
-At the start of each game, the decks are shuffled. After a card has been drawn, it is returned to the bottom of the deck. This means the decks are never shuffled again during the game.
+At the start of each game, the decks are shuffled. After a card has been drawn, it is returned to the bottom of the deck. This means the decks are never shuffled again during the game. This also takes into account being sent to Jail upon rolling three doubles in a row.
 
-This also takes into account being sent to Jail upon rolling three doubles in a row.
+### Nearest v Next
+In the 2018 edition of Monopoly there are two Chance cards that direct you to a non-descript station. They are worded exactly the same except one says 'the next station' and the other says 'the nearest station'. I found some people online reasoning that the word 'nearest' implies that if the station behind you is closer you should make a full revolution to it (passing GO in the process) or just move back to it. I initially thought there was meant to be a difference in the cards due to the difference in wording. However, I checked the cards in my 2008 edition of the game and they both say 'nearest' station. Both editions' also have cards that say to advance to the 'nearest' utility. For these reasons, in this simulation both the 'nearest' and 'next' stations refer to the station you next encounter moving in the direction of the arrow on GO.
 
 ## My results
 ![image](https://user-images.githubusercontent.com/67541077/210126620-a88cb6ce-d480-4e11-9a1f-4cd37317f13f.png)
@@ -37,4 +38,4 @@ I've compared my results with a few others'. Namely, the top-ten landed on prope
 
 Brandreth's book was published in 1985 and so it was based on an older edition of Monopoly. I know there are different Chance and Community Chest cards in whatever version he has, because he makes reference to cards such as 'Go back to Old Kent Road' and 'Take a trip to Marylebone Station' which don't appear in my edition of the game. I think this is enough to change the results how they were. Interestingly, his results say that two light blue properties are in the top 10 but I found they are all average at best.
 
-Matt Parker published his python code which ran simulations similar to mine, but I noticed a few discrepancies in his code, which may be mistakes or differing Monopoly editions. First, his code shuffles the decks when they deplete, but they should just repeat. I also noticed that his code had the locations of the third Chance and Community Chest spaces flipped (but I'm not sure if this is reflected in his results; he may have picked up on the mistake and not uploaded the correct version of the code). What I'm fairly sure isn't a mistake, however, is thst in the code he only had one Chance card that takes you to the next station, which may be another edition difference.
+Matt Parker published his python code which ran simulations similar to mine, but I noticed a few discrepancies in his code, which may be mistakes or differing Monopoly editions. First, his code shuffles the decks when they deplete, but they should just repeat. I also noticed that his code and results suggest that he had the locations of the third Chance and Community Chest spaces flipped. What I'm fairly sure isn't a mistake, however, is that in the code he only had one Chance card that takes you to the next station, which may be another edition difference.
